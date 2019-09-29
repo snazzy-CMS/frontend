@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import * as Yup from "yup";
 
-const SignUpForm = () => (
+const SignUpForm = ({ values, touched, errors }) => (
   <div className="signup">
     <Form className="signup__form">
       <Field
@@ -12,6 +12,9 @@ const SignUpForm = () => (
         placeholder="enter your email"
         className="signup__field"
       />
+      {touched.email && erorrs.email && (
+        <p className="signup__form__error">{errors.email}</p>
+      )}
 
       <Field
         type="password"
@@ -19,6 +22,9 @@ const SignUpForm = () => (
         placeholder="enter your password"
         className="signup__password"
       />
+      {touched.password && erorrs.password && (
+        <p className="signup__form__error">{errors.password}</p>
+      )}
 
       <button type="submit">Sign Up</button>
     </Form>
@@ -45,5 +51,23 @@ const FormikSignUp = withFormik({
         "Your password sucks"
       )
   }),
-  handleSubmit()
-});
+  handleSubmit(values) {
+    console.log(values);
+    axiosWithAuth()
+      .post("", {
+        email: values.email,
+        password: values.password
+      })
+      .then(res => {
+        console.log(res);
+        //   set token to response
+        localStorage.setItem("token", res);
+        //   push user to private view
+      })
+      .catch(err => {
+        console.error("you have made a major goof, my dude", err);
+      });
+  }
+})(SignUpForm);
+
+export default FormikSignUp;
