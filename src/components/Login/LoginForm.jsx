@@ -3,7 +3,7 @@ import { withFormik, Field, Form } from "formik";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import * as Yup from "yup";
 
-const LoginForm = () => (
+const LoginForm = ({ values, touched, errors }) => (
   <div className="login">
     <Form className="login__form">
       <Field
@@ -68,6 +68,6 @@ const FormikLogin = withFormik({
         console.error("you have made a major goof, my dude", err);
       });
   }
-})(FormikLogin);
+})(LoginForm);
 
 export default FormikLogin;
