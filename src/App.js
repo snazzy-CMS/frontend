@@ -1,11 +1,12 @@
 import React from "react";
+import PostList from "./components/PostList";
 
 const App = () => {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
+	return (
+		<div>
+			<PostList />
+		</div>
+	);
 };
 
 export default App;
