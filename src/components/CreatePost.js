@@ -15,8 +15,11 @@ const CreatePost = ({ status }) => {
       <Form>
         <h2>Create a new post</h2>
         <Field type="text" name="title" placeholder="Title" />
+        {touched.title && errors.title && (<p>{errors.title}</p>)}
 
         <Field type="text" name="content" placeholder="Post" />
+        {touched.content && errors.content && (<p>{errors.content}</p>)}
+        
         <button type="submit">Add Post</button>
       </Form>
       {post.map(postInfo => (
