@@ -1,10 +1,11 @@
 import React from "react";
-import CreatePost from './components/CreatePost';
+import AuthenticationView from "./components/Login/AuthenticationView";
 
 const App = () => {
   return (
     <div>
-      <CreatePost />
+      <h1>Hello World</h1>
+      <AuthenticationView />
     </div>
   );
 };
