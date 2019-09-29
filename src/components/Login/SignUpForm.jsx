@@ -26,7 +26,9 @@ const SignUpForm = ({ values, touched, errors }) => (
         <p className="signup__form__error">{errors.password}</p>
       )}
 
-      <button type="submit">Sign Up</button>
+      <button type="submit" className="button submit--button">
+        Sign Up
+      </button>
     </Form>
   </div>
 );
@@ -54,7 +56,7 @@ const FormikSignUp = withFormik({
   handleSubmit(values) {
     console.log(values);
     axiosWithAuth()
-      .post("", {
+      .post("/signup", {
         email: values.email,
         password: values.password
       })
