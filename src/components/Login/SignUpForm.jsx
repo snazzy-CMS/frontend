@@ -12,7 +12,7 @@ const SignUpForm = ({ values, touched, errors }) => (
         placeholder="enter your email"
         className="signup__field"
       />
-      {touched.email && erorrs.email && (
+      {touched.email && errors.email && (
         <p className="signup__form__error">{errors.email}</p>
       )}
 
@@ -22,7 +22,7 @@ const SignUpForm = ({ values, touched, errors }) => (
         placeholder="enter your password"
         className="signup__password"
       />
-      {touched.password && erorrs.password && (
+      {touched.password && errors.password && (
         <p className="signup__form__error">{errors.password}</p>
       )}
 

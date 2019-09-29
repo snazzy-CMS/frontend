@@ -12,7 +12,7 @@ const LoginForm = ({ values, touched, errors }) => (
         placeholder="enter your email"
         className="login__field"
       />
-      {touched.email && erorrs.email && (
+      {touched.email && errors.email && (
         <p className="login__form__error">{errors.email}</p>
       )}
       <Field
@@ -21,7 +21,7 @@ const LoginForm = ({ values, touched, errors }) => (
         placeholder="enter your password"
         className="login__field"
       />
-      {touched.password && erorrs.password && (
+      {touched.password && errors.password && (
         <p className="login__form__error">{errors.password}</p>
       )}
       <button type="submit" className="button submit--button">
